@@ -66,3 +66,24 @@ public class Main {
 
         return count > array.length / 2 ? candidate : -1;
     }
+    public static int[] rotateArray(int[] array, int positions) {
+        if (array == null || array.length == 0) {
+            return array;
+        }
+
+        int n = array.length;
+        positions = positions % n;
+
+        if (positions == 0) {
+            return array.clone();
+        }
+
+        int[] rotatedArray = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            int newPosition = (i + positions) % n;
+            rotatedArray[newPosition] = array[i];
+        }
+
+        return rotatedArray;
+    }
